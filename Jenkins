@@ -1,9 +1,9 @@
 pipeline {
-    agent any
+    agent {label 'Windows-Slave-USE2-AWS'}
     stages {
         stage('Submit Stack') {
             steps {
-            sh "aws cloudformation create-stack --stack-name ecinstance10 --template-body file://instance.yaml --region 'us-east-1'"
+            sh "aws cloudformation create-stack --stack-name ecinstance10 --template-body file://instance.yaml --tags Key=Name,Value=113poc01 --region 'us-east-1'"
               }
              }
             }
